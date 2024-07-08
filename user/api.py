@@ -1,9 +1,12 @@
 from django.shortcuts import render
 
+from user.logic import get_code
+
 # Create your views here.
 
 def get_verify_code(request):
     '''手机注册'''
+    code = get_code()
     pass
 
 def login(request):
@@ -21,3 +24,5 @@ def modify_profile(request):
 def upload_avatar(request):
     '''上传头像'''
     pass
+
+
