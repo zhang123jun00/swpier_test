@@ -1,17 +1,20 @@
 from django.shortcuts import render
-
+from django.core.cache import cache
 from user.logic import get_code
+
 
 # Create your views here.
 
 def get_verify_code(request):
     '''手机注册'''
+    
     code = get_code()
-    pass
+    cache.set('VerifyCode-%s' %phonenumber, code)
 
 def login(request):
     '''短信验证码登录'''
-    pass
+    request.POST.get(phonenumber)
+    cache.get('VerifyCode-%s')
 
 def get_profile(request):
     '''获取个人资料'''
